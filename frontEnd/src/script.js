@@ -1,11 +1,39 @@
+// selectors
 const userNameInput = document.querySelector("#username-input");
-
 const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
+
+// event listener
+form.addEventListener("submit", handleForm);
+
+// functions
+function handleForm(event) {
   event.preventDefault();
-  console.log(event);
-  let apiUrl = `http://localhost:3300/api/users?username=${userNameInput.value}`;
+
+  const username = userNameInput.value.trim();
+
+  if (!username) {
+    console.log("Username is required");
+    return;
+  }
+
+  const apiUrl = `http://localhost:3300/api/users?username=${username}`;
+
   fetch(apiUrl)
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-});
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Server Error: ${res.status}`);
+      }
+
+      return res.json();
+    })
+    .then((data) => {
+      if (data) {
+        console.log("User Found:", data);
+      } else {
+        console.log("User Not Found");
+      }
+    })
+    .catch((err) => {
+      console.error("Fetch Error:", err.message);
+    });
+}
