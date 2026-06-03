@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'fontooo';
+    src: url('./assets/font/fonta.woff2') format(woff2);
+}
+
+html,
+body {
+    font-family: 'fontooo';
+}
