@@ -1,39 +1,29 @@
-// selectors
 const userNameInput = document.querySelector("#username-input");
 const form = document.querySelector("form");
-
-// event listener
+const passwordInput = document.querySelector("#password-input");
 form.addEventListener("submit", handleForm);
 
-// functions
 function handleForm(event) {
   event.preventDefault();
 
   const username = userNameInput.value.trim();
 
-  if (!username) {
-    console.log("Username is required");
-    return;
+  if (userNameInput.value.length > 4 && passwordInput.value.length > 8) {
+    fetch(`http://localhost:3300/api/users?username=${username}`)
+      .then((res) => res.json())
+      .then((user) => {
+        if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
+
+          window.location.href = "./pages/panel.html";
+        } else {
+          alert("کاربر پیدا نشد");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    alert("input values are invalid");
   }
-
-  const apiUrl = `http://localhost:3300/api/users?username=${username}`;
-
-  fetch(apiUrl)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(`Server Error: ${res.status}`);
-      }
-
-      return res.json();
-    })
-    .then((data) => {
-      if (data) {
-        console.log("User Found:", data);
-      } else {
-        console.log("User Not Found");
-      }
-    })
-    .catch((err) => {
-      console.error("Fetch Error:", err.message);
-    });
 }
