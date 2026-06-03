@@ -3,10 +3,10 @@ const url = require("url");
 
 let database = {
   users: [
-    { id: 1, username: "abolfazl", password: "abolfazl111" },
-    { id: 2, username: "mohadse", password: "abolfazl2222" },
-    { id: 3, username: "panah", password: "abolfazl333333" },
-    { id: 4, username: "omid", password: "abolfazl44444444" },
+    { id: 1, username: "abolfazl", password: "abolfazl1231" },
+    { id: 2, username: "mohadese", password: "mh1020" },
+    { id: 3, username: "panah", password: "ph2020@" },
+    { id: 4, username: "omid", password: "om112122@#" },
   ],
 };
 
