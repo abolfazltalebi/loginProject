@@ -85,9 +85,6 @@ http://localhost:3300/api/users?username=abolfazl
 * مسیریابی سمت کاربر (Client-side Navigation)
 * مدیریت وضعیت ورود کاربران
 
-## توسعه‌دهنده
-
-abolfazl talebi
 
 
 # User Login System with Node.js and JavaScript
