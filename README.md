@@ -87,8 +87,7 @@ http://localhost:3300/api/users?username=abolfazl
 
 ## توسعه‌دهنده
 
-Abolfazl Dev
-
+abolfazl talebi
 
 
 # User Login System with Node.js and JavaScript
@@ -184,4 +183,4 @@ This project was created to practice:
 
 ## Author
 
-Abolfazl Dev
+abolfazl talebi
